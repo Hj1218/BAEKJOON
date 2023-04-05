@@ -1,23 +1,28 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        String num=in.next();
-        int [] arr= new int[10];
-        char []c=num.toCharArray();
-        for(int i=0;i<num.length();i++){
-            int n=c[i]-'0';
-            if(n==6){
-                arr[9]++;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        char [] c = new char[s.length()];
+        int []n=new int[10];
+        for(int i=0;i<s.length();i++){
+            c[i]=s.charAt(i);
+        }
+        for(int j=0;j<c.length;j++) {
+            int a = c[j]-'0';
+            if(a==6){
+                n[9]++;
             }
             else{
-                arr[n]++;
+                n[a]++;
             }
         }
-        arr[9]=(arr[9]/2)+(arr[9]%2);
-        Arrays.sort(arr);
-        System.out.print(arr[9]);
+        n[9]=(n[9]/2)+(n[9]%2);
+        Arrays.sort(n);
+        System.out.print(n[9]);
     }
 }
